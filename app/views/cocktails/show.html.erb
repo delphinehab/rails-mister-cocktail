@@ -1,4 +1,6 @@
-<img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80" alt="Cocktail">
+<%if @cocktail.photo.attached?  %>
+  <%= cl_image_tag @cocktail.photo.key, height: 10, width: 30, crop: :fill %>
+<% end %>
 <h1><%= @cocktail.name %> </h1>
 <ul>
   <% @cocktail.doses.each do |dose| %>
@@ -10,7 +12,10 @@
 <br>
 <%= link_to "New doses and ingredients", new_cocktail_dose_path(@cocktail)  %>
 <br>
-
+<br>
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.input :photo, as: :file %>
+<% end %>
 <br>
 <%= link_to "Back to the list of cocktails", root_path  %>
 

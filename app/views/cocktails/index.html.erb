@@ -2,7 +2,11 @@
 
  <ul>
   <% @cocktails.each do |cocktail| %>
-    <li><%= link_to  "#{cocktail.name}", cocktail_path(cocktail) %></li>
+    <li><%= link_to  "#{cocktail.name}", cocktail_path(cocktail) %>
+      <% if cocktail.photo.attached? %>
+        <%= cl_image_tag cocktail.photo.key, height: 10, width: 30, crop: :fill %>
+      <% end %>
+    </li>
 <% end %>
 </ul>
 
