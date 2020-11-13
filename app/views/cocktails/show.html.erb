@@ -1,5 +1,5 @@
 <%if @cocktail.photo.attached?  %>
-  <%= cl_image_tag @cocktail.photo.key, height: 60, width: 100, crop: :fill %>
+  <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "img-show" %>
 <% end %>
 <h1><%= @cocktail.name %> </h1>
 <ul>

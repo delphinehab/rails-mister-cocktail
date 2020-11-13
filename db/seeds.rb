@@ -22,7 +22,7 @@ Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
 
-Cocktail.create(name: "Mojito")
+Cocktail.create(name: "Mojito", photo: )
 Cocktail.create(name: "Cuba Libre")
 Cocktail.create(name: "Ti Punch")
 Cocktail.create(name: "Sex on the Beach")

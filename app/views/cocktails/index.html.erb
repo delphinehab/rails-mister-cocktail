@@ -6,7 +6,7 @@
     <% @cocktails.each do |cocktail| %>
       <div class="card-product">
       <% if cocktail.photo.attached? %>
-          <%= cl_image_tag cocktail.photo.key, height: 10, width: 30, crop: :fill %>
+          <%= cl_image_tag cocktail.photo.key, crop: :fill, class: 'img-card' %>
       <% end %>
       <div class="card-product-infos">
         <h2><%= link_to  "#{cocktail.name}", cocktail_path(cocktail) %></h2>
