@@ -1,17 +1,20 @@
-<%if @cocktail.photo.attached?  %>
-  <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "img-show" %>
-<% end %>
-<h1><%= @cocktail.name %> </h1>
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li>Ingredient : <%= dose.ingredient.name %> - <%= dose.description %>
-      <%= link_to "Delete", dose_path(dose), method: :delete %>
-    </li>
-  <% end %>
-</ul>
-<br>
-<%= link_to "New doses and ingredients", new_cocktail_dose_path(@cocktail)  %>
-<br>
-<%= link_to "Back to the list of cocktails", root_path  %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key, crop: :fill %>')">
+  <div class="container">
+    <h1><%= @cocktail.name%></h1>
+  </div>
+</div>
 
+<div class="container">
+  <div class="ingredients">
+    <% @cocktail.doses.each do |dose| %>
+      <li>Ingredient : <%= dose.ingredient.name %> - <%= dose.description %>
+        <%= link_to "Delete", dose_path(dose), method: :delete %>
+      </li>
+    <% end %>
+  </div>
+  <br>
+  <%= link_to "New doses and ingredients", new_cocktail_dose_path(@cocktail)  %>
+  <br>
+  <%= link_to "Back to the list of cocktails", root_path  %>
+</div>
 <%= render "shared/footer"%>
