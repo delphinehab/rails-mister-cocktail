@@ -1,9 +1,18 @@
-<h1>Add ingredients and doses</h1>
-
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.association :ingredient %>
-  <%= f.input :description %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key, crop: :fill %>')">
+  <div class="container">
+    <h1><%= @cocktail.name%></h1>
+  </div>
+</div>
+<br>
+<div class="container">
+  <h1>Add an ingredient</h1>
+  <br>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.association :ingredient %>
+    <br>
+    <%= f.input :description %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 

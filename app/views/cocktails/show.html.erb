@@ -6,14 +6,15 @@
 
 <div class="container">
   <div class="ingredients">
+    <h2>List of ingredients</h2>
     <% @cocktail.doses.each do |dose| %>
-      <li>Ingredient : <%= dose.ingredient.name %> - <%= dose.description %>
+      <li><%= dose.ingredient.name %> - <%= dose.description %>
         <%= link_to "Delete", dose_path(dose), method: :delete %>
       </li>
     <% end %>
   </div>
   <br>
-  <%= link_to "New doses and ingredients", new_cocktail_dose_path(@cocktail)  %>
+  <p><%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), {:style=>'text-align: center;'}  %></p>
   <br>
   <%= link_to "Back to the list of cocktails", root_path  %>
 </div>
